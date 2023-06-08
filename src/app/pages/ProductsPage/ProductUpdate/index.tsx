@@ -259,35 +259,43 @@ export default function ProductUpdate() {
             {/* card */}
             <Card className="hover:shadow-md flex flex-row justify-between gap-2 p-4">
               <button
-                className="px-4 py-2 bg-segunda-100 text-primera-100 rounded-lg text-xs font-semibold shadow-md inline-flex items-center hover:bg-primera-100 hover:text-segunda-100"
                 type="button"
                 onClick={() => {
                   navigate(-1);
                 }}
+                className="relative inline-block px-4 py-2 font-bold group w-full max-w-[8rem]"
               >
-                <ArrowUturnLeftIcon className="h-4 w-4 stroke-1 mr-2" />
-                Back
+                <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-secondary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span className="absolute rounded-lg inset-0 w-full h-full bg-secondary-500 border-2 border-secondary-500 group-hover:bg-primary-500 group-hover:border-secondary-500"></span>
+                <span className="relative text-primary-500 group-hover:text-secondary-500 flex items-center justify-center text-xs">
+                  <ArrowUturnLeftIcon className="h-4 w-4 mr-2" />
+                  Back
+                </span>
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 bg-primera-100 text-segunda-100 flex items-center rounded-md text-xs font-semibold shadow-md hover:bg-segunda-100 hover:text-primera-100"
+                className="relative inline-block px-4 py-2 font-bold group w-full max-w-[8rem]"
               >
-                <CheckCircleIcon className="h-4 w-4 stroke-1 mr-1" />
-                Save
+                <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+                <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+                  <CheckCircleIcon className="h-4 w-4 mr-1" />
+                  Save
+                </span>
               </button>
             </Card>
           </div>
           {/* card */}
           <Card className="flex-1 w-full text-xs hover:shadow-md grid grid-cols-4 gap-2 p-4">
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Part #
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.part_number
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="part_number"
@@ -301,14 +309,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Part Name
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.name
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="name"
@@ -322,18 +330,18 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2 relative">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Vendor
               </label>
-              <div className="w-full cursor-default overflow-hidden bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+              <div className="w-full cursor-default overflow-hidden bg-white text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300">
                 <Combobox
                   value={selectedVendor}
                   onChange={v => handleSelectVendor(v)}
                   as="div"
-                  className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white shadow-sm ring-1 ring-black/5"
+                  className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white ring-1 ring-black/5"
                 >
                   <Combobox.Input
-                    className="`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus-visible:border-segunda-100"
+                    className="`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
                     onChange={event => setVendorQuery(event.target.value)}
                     displayValue={(vendor: BasicModel) => vendor.name}
                   />
@@ -343,13 +351,13 @@ export default function ProductUpdate() {
                       aria-hidden="true"
                     />
                   </Combobox.Button>
-                  <Combobox.Options className="absolute bg-white shadow-md z-40 mt-1 max-h-32 md:max-h-64 w-full overflow-y-auto rounded text-sm">
+                  <Combobox.Options className="absolute bg-white shadow-md z-40 mt-1 max-h-32 md:max-h-64 w-full overflow-y-auto rounded ">
                     {filteredVendor.map(vendor => (
                       <Combobox.Option
                         className={({ active }) =>
                           `relative cursor-default select-none text-xs py-2 pl-5 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-white'
+                              ? 'bg-primary-500 text-white'
                               : 'text-gray-900'
                           }`
                         }
@@ -364,18 +372,18 @@ export default function ProductUpdate() {
               </div>
             </div>
             <div className="col-span-4 md:col-span-2 relative">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Category
               </label>
-              <div className="w-full cursor-default overflow-hidden bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+              <div className="w-full cursor-default overflow-hidden bg-white text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300">
                 <Combobox
                   value={selectedCategory}
                   onChange={c => handleSelectedCategory(c)}
                   as="div"
-                  className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white shadow-sm ring-1 ring-black/5"
+                  className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white ring-1 ring-black/5"
                 >
                   <Combobox.Input
-                    className="`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus-visible:border-segunda-100"
+                    className="`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
                     onChange={event => setCategoryQuery(event.target.value)}
                     displayValue={(category: BasicModel) => category.name}
                   />
@@ -385,13 +393,13 @@ export default function ProductUpdate() {
                       aria-hidden="true"
                     />
                   </Combobox.Button>
-                  <Combobox.Options className="absolute bg-white shadow-md z-40 mt-1 max-h-32 md:max-h-64 w-full overflow-y-auto rounded text-sm">
+                  <Combobox.Options className="absolute bg-white shadow-md z-40 mt-1 max-h-32 md:max-h-64 w-full overflow-y-auto rounded ">
                     {filteredCategory.map(category => (
                       <Combobox.Option
                         className={({ active }) =>
                           `relative cursor-default select-none text-xs py-2 pl-5 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-white'
+                              ? 'bg-primary-500 text-white'
                               : 'text-gray-900'
                           }`
                         }
@@ -406,18 +414,18 @@ export default function ProductUpdate() {
               </div>
             </div>
             <div className="col-span-4 md:col-span-2 relative">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Brand
               </label>
-              <div className="w-full cursor-default overflow-hidden bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+              <div className="w-full cursor-default overflow-hidden bg-white text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300">
                 <Combobox
                   value={selectedBrand}
                   onChange={b => handleSelectedBrand(b)}
                   as="div"
-                  className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white shadow-sm ring-1 ring-black/5"
+                  className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white ring-1 ring-black/5"
                 >
                   <Combobox.Input
-                    className="`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus-visible:border-segunda-100"
+                    className="`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
                     onChange={event => setBrandQuery(event.target.value)}
                     displayValue={(brand: BasicModel) => brand.name}
                   />
@@ -427,13 +435,13 @@ export default function ProductUpdate() {
                       aria-hidden="true"
                     />
                   </Combobox.Button>
-                  <Combobox.Options className="absolute bg-white shadow-md z-40 mt-1 max-h-32 md:max-h-64 w-full overflow-y-auto rounded text-sm">
+                  <Combobox.Options className="absolute bg-white shadow-md z-40 mt-1 max-h-32 md:max-h-64 w-full overflow-y-auto rounded ">
                     {filteredBrand.map(brand => (
                       <Combobox.Option
                         className={({ active }) =>
                           `relative cursor-default select-none text-xs py-2 pl-5 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-white'
+                              ? 'bg-primary-500 text-white'
                               : 'text-gray-900'
                           }`
                         }
@@ -448,18 +456,18 @@ export default function ProductUpdate() {
               </div>
             </div>
             <div className="col-span-4 md:col-span-2 relative">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Product Parent
               </label>
-              <div className="w-full cursor-default overflow-hidden bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+              <div className="w-full cursor-default overflow-hidden bg-white text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300">
                 <Combobox
                   value={selectedParent}
                   onChange={p => handleSelectParent(p)}
                   as="div"
-                  className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white shadow-sm ring-1 ring-black/5"
+                  className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white ring-1 ring-black/5"
                 >
                   <Combobox.Input
-                    className="`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus-visible:border-segunda-100"
+                    className="`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
                     onChange={event => setParentQuery(event.target.value)}
                     displayValue={(parent: BasicModel) => parent.name}
                   />
@@ -469,13 +477,13 @@ export default function ProductUpdate() {
                       aria-hidden="true"
                     />
                   </Combobox.Button>
-                  <Combobox.Options className="absolute bg-white shadow-md z-40 mt-1 max-h-32 md:max-h-64 w-full overflow-y-auto rounded text-sm">
+                  <Combobox.Options className="absolute bg-white shadow-md z-40 mt-1 max-h-32 md:max-h-64 w-full overflow-y-auto rounded ">
                     {filteredParent.map(parent => (
                       <Combobox.Option
                         className={({ active }) =>
                           `relative cursor-default select-none text-xs py-2 pl-5 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-white'
+                              ? 'bg-primary-500 text-white'
                               : 'text-gray-900'
                           }`
                         }
@@ -489,18 +497,16 @@ export default function ProductUpdate() {
                 </Combobox>
               </div>
             </div>
-            <div className="col-span-4 p-1 rounded-xl font-bold my-2 bg-primera-100 text-segunda-100">
-              <p className="text-center">Details</p>
-            </div>
+            <hr className="col-span-4 my-8" />
             <div className="col-span-4">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Short Description
               </label>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.short_description
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="short_description"
@@ -514,14 +520,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Long Description
               </label>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.long_description
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="long_description"
@@ -535,7 +541,7 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Stock
               </label>
               <Listbox
@@ -545,7 +551,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight text-left shadow border focus:outline-none focus-visible:border-segunda-100 text-sm">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.stock)}
                     </span>
@@ -556,14 +562,14 @@ export default function ProductUpdate() {
                       />
                     </span>
                   </Listbox.Button>
-                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm">
+                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
                     {TWO_VAL_ARRAY.map((boolArr, boolArrIdx) => (
                       <Listbox.Option
                         key={boolArrIdx}
                         className={({ active }) =>
                           `relative cursor-default select-none py-2 pl-10 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-segunda-100'
+                              ? 'bg-primary-500 text-secondary-500'
                               : 'text-gray-900'
                           }`
                         }
@@ -587,7 +593,7 @@ export default function ProductUpdate() {
               </Listbox>
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Status
               </label>
               <Listbox
@@ -597,7 +603,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight text-left shadow border focus:outline-none focus-visible:border-segunda-100 text-sm">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.status)}
                     </span>
@@ -608,14 +614,14 @@ export default function ProductUpdate() {
                       />
                     </span>
                   </Listbox.Button>
-                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm">
+                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
                     {TWO_VAL_ARRAY.map((boolArr, boolArrIdx) => (
                       <Listbox.Option
                         key={boolArrIdx}
                         className={({ active }) =>
                           `relative cursor-default select-none py-2 pl-10 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-segunda-100'
+                              ? 'bg-primary-500 text-secondary-500'
                               : 'text-gray-900'
                           }`
                         }
@@ -639,7 +645,7 @@ export default function ProductUpdate() {
               </Listbox>
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Next Day Delivery
               </label>
               <Listbox
@@ -649,7 +655,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight text-left shadow border focus:outline-none focus-visible:border-segunda-100 text-sm">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.nextDayDeliveryAllowed)}
                     </span>
@@ -660,14 +666,14 @@ export default function ProductUpdate() {
                       />
                     </span>
                   </Listbox.Button>
-                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm">
+                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
                     {TWO_VAL_ARRAY.map((boolArr, boolArrIdx) => (
                       <Listbox.Option
                         key={boolArrIdx}
                         className={({ active }) =>
                           `relative cursor-default select-none py-2 pl-10 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-segunda-100'
+                              ? 'bg-primary-500 text-secondary-500'
                               : 'text-gray-900'
                           }`
                         }
@@ -691,7 +697,7 @@ export default function ProductUpdate() {
               </Listbox>
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Express Delivery
               </label>
               <Listbox
@@ -701,7 +707,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight text-left shadow border focus:outline-none focus-visible:border-segunda-100 text-sm">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.expressDeliveryAllowed)}
                     </span>
@@ -712,14 +718,14 @@ export default function ProductUpdate() {
                       />
                     </span>
                   </Listbox.Button>
-                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm">
+                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
                     {TWO_VAL_ARRAY.map((boolArr, boolArrIdx) => (
                       <Listbox.Option
                         key={boolArrIdx}
                         className={({ active }) =>
                           `relative cursor-default select-none py-2 pl-10 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-segunda-100'
+                              ? 'bg-primary-500 text-secondary-500'
                               : 'text-gray-900'
                           }`
                         }
@@ -743,14 +749,14 @@ export default function ProductUpdate() {
               </Listbox>
             </div>
             <div className="col-span-4">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Remarks
               </label>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.remarks
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="remarks"
@@ -764,12 +770,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4">
-              <label className="block text-gray-700 font-bold mb-2">Tags</label>
+              <label className="block text-slate-700 font-bold mb-2">
+                Tags
+              </label>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tags
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tags"
@@ -780,11 +788,10 @@ export default function ProductUpdate() {
                 <p className="text-red-500 text-xs italic">Tags is required</p>
               )}
             </div>
-            <div className="col-span-4 p-1 rounded-xl font-bold my-2 bg-primera-100 text-segunda-100">
-              <p className="text-center">Product Visibility</p>
-            </div>
+            <hr className="col-span-4 my-8" />
+
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 BTC Availability
               </label>
               <Listbox
@@ -794,7 +801,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight text-left shadow border focus:outline-none focus-visible:border-segunda-100 text-sm">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderProductAvailability(state.btc_availability)}
                     </span>
@@ -805,14 +812,14 @@ export default function ProductUpdate() {
                       />
                     </span>
                   </Listbox.Button>
-                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm">
+                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
                     {THREE_VAL_ARRAY.map((boolArr, boolArrIdx) => (
                       <Listbox.Option
                         key={boolArrIdx}
                         className={({ active }) =>
                           `relative cursor-default select-none py-2 pl-10 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-segunda-100'
+                              ? 'bg-primary-500 text-secondary-500'
                               : 'text-gray-900'
                           }`
                         }
@@ -836,7 +843,7 @@ export default function ProductUpdate() {
               </Listbox>
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Garage Visibility
               </label>
               <Listbox
@@ -846,7 +853,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight text-left shadow border focus:outline-none focus-visible:border-segunda-100 text-sm">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderProductGarageType(state.garage_type)}
                     </span>
@@ -857,14 +864,14 @@ export default function ProductUpdate() {
                       />
                     </span>
                   </Listbox.Button>
-                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm">
+                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
                     {THREE_VAL_ARRAY.map((boolArr, boolArrIdx) => (
                       <Listbox.Option
                         key={boolArrIdx}
                         className={({ active }) =>
                           `relative cursor-default select-none py-2 pl-10 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-segunda-100'
+                              ? 'bg-primary-500 text-secondary-500'
                               : 'text-gray-900'
                           }`
                         }
@@ -888,7 +895,7 @@ export default function ProductUpdate() {
               </Listbox>
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Is Wholesale
               </label>
               <Listbox
@@ -898,7 +905,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight text-left shadow border focus:outline-none focus-visible:border-segunda-100 text-sm">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.is_wholesale)}
                     </span>
@@ -909,14 +916,14 @@ export default function ProductUpdate() {
                       />
                     </span>
                   </Listbox.Button>
-                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm">
+                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
                     {TWO_VAL_ARRAY.map((boolArr, boolArrIdx) => (
                       <Listbox.Option
                         key={boolArrIdx}
                         className={({ active }) =>
                           `relative cursor-default select-none py-2 pl-10 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-segunda-100'
+                              ? 'bg-primary-500 text-secondary-500'
                               : 'text-gray-900'
                           }`
                         }
@@ -941,7 +948,7 @@ export default function ProductUpdate() {
             </div>
             <div className="col-span-4 md:col-span-2"></div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Is Promo
               </label>
               <Listbox
@@ -951,7 +958,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight text-left shadow border focus:outline-none focus-visible:border-segunda-100 text-sm">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.is_promo)}
                     </span>
@@ -962,14 +969,14 @@ export default function ProductUpdate() {
                       />
                     </span>
                   </Listbox.Button>
-                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm">
+                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
                     {TWO_VAL_ARRAY.map((boolArr, boolArrIdx) => (
                       <Listbox.Option
                         key={boolArrIdx}
                         className={({ active }) =>
                           `relative cursor-default select-none py-2 pl-10 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-segunda-100'
+                              ? 'bg-primary-500 text-secondary-500'
                               : 'text-gray-900'
                           }`
                         }
@@ -994,7 +1001,7 @@ export default function ProductUpdate() {
             </div>
 
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Sale Type
               </label>
               <Listbox
@@ -1004,7 +1011,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight text-left shadow border focus:outline-none focus-visible:border-segunda-100 text-sm">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderSaleType(state.is_sale)}
                     </span>
@@ -1015,14 +1022,14 @@ export default function ProductUpdate() {
                       />
                     </span>
                   </Listbox.Button>
-                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm">
+                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
                     {THREE_VAL_ARRAY.map((boolArr, boolArrIdx) => (
                       <Listbox.Option
                         key={boolArrIdx}
                         className={({ active }) =>
                           `relative cursor-default select-none py-2 pl-10 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-segunda-100'
+                              ? 'bg-primary-500 text-secondary-500'
                               : 'text-gray-900'
                           }`
                         }
@@ -1047,7 +1054,7 @@ export default function ProductUpdate() {
             </div>
 
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Discount Allowed
               </label>
               <Listbox
@@ -1057,7 +1064,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight text-left shadow border focus:outline-none focus-visible:border-segunda-100 text-sm">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.discountAllowed)}
                     </span>
@@ -1068,14 +1075,14 @@ export default function ProductUpdate() {
                       />
                     </span>
                   </Listbox.Button>
-                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm">
+                  <Listbox.Options className="absolute mt-1 z-40 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
                     {TWO_VAL_ARRAY.map((boolArr, boolArrIdx) => (
                       <Listbox.Option
                         key={boolArrIdx}
                         className={({ active }) =>
                           `relative cursor-default select-none py-2 pl-10 pr-4 ${
                             active
-                              ? 'bg-primera-100 text-segunda-100'
+                              ? 'bg-primary-500 text-secondary-500'
                               : 'text-gray-900'
                           }`
                         }
@@ -1099,14 +1106,14 @@ export default function ProductUpdate() {
               </Listbox>
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Discount Percent
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.discount_percent
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="discount_percent"
@@ -1119,18 +1126,17 @@ export default function ProductUpdate() {
                 </p>
               )}
             </div>
-            <div className="col-span-4 p-1 rounded-xl font-bold my-2 bg-primera-100 text-segunda-100">
-              <p className="text-center">Cost & Prices (&#8369;)</p>
-            </div>
+            <hr className="col-span-4 my-8" />
+
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Price
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.price
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="price"
@@ -1142,12 +1148,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">Cost</label>
+              <label className="block text-slate-700 font-bold mb-2">
+                Cost
+              </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.cost
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="cost"
@@ -1159,14 +1167,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 1
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_1
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_1"
@@ -1180,14 +1188,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 2
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_2
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_2"
@@ -1201,14 +1209,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 3
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_3
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_3"
@@ -1222,14 +1230,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 4
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_4
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_4"
@@ -1243,14 +1251,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 5
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_5
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_5"
@@ -1264,14 +1272,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 6
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_6
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_6"
@@ -1285,14 +1293,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 7
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_7
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_7"
@@ -1306,14 +1314,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 8
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_8
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_8"
@@ -1327,14 +1335,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 9
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_9
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_9"
@@ -1348,14 +1356,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 10
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_10
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_10"
@@ -1369,14 +1377,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 11
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_11
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_11"
@@ -1390,14 +1398,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 12
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_12
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_12"
@@ -1411,14 +1419,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 13
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_13
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_13"
@@ -1432,14 +1440,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 14
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_14
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_14"
@@ -1453,14 +1461,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 15
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_15
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_15"
@@ -1474,14 +1482,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 16
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_16
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_16"
@@ -1495,14 +1503,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 17
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_17
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_17"
@@ -1516,14 +1524,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 18
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_18
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_18"
@@ -1537,14 +1545,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 19
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_19
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_19"
@@ -1558,14 +1566,14 @@ export default function ProductUpdate() {
               )}
             </div>
             <div className="col-span-4 md:col-span-2">
-              <label className="block text-gray-700 font-bold mb-2">
+              <label className="block text-slate-700 font-bold mb-2">
                 Tier 20
               </label>
               <input
-                className={`shadow max-w-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_20
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
-                    : 'focus:outline focus:outline-segunda-100'
+                    : 'focus:outline focus:outline-secondary-500'
                 }`}
                 id="text"
                 name="tier_20"

@@ -78,14 +78,30 @@ export default function Pagination({ data, onPageChanged, limit }) {
     }
     return range(1, totalPages);
   };
+
+  const renderBorderRound = (page: number) => {
+    let rounded = '';
+    switch (page) {
+      case 1:
+        rounded = 'rounded-l-lg';
+        break;
+      case totalPages:
+        rounded = 'rounded-r-lg';
+        break;
+      default:
+        rounded = 'rounded-none';
+        break;
+    }
+    return rounded;
+  };
   return (
-    <div className="flex flex-row divide-x text-xs justify-center my-4 mx-2 lg:text-md lg:justify-end">
+    <div className="flex flex-row divide-x text-xs justify-center my-4 md:text-md md:justify-end">
       {fetchPageNumbers().map((page, index) => {
         if (page === LEFT_PAGE)
           return (
             <button
               key={index}
-              className="py-2 px-4 bg-gray-100 shadow-md hover:bg-segunda-100"
+              className="py-2 px-4 bg-primary-100 shadow-lg border border-slate-100 hover:bg-segunda-100"
               onClick={handleMoveLeft}
             >
               <span aria-hidden="true">&laquo;</span>
@@ -96,7 +112,7 @@ export default function Pagination({ data, onPageChanged, limit }) {
           return (
             <button
               key={index}
-              className="py-2 px-4 bg-gray-100 shadow-md hover:bg-segunda-100"
+              className="py-2 px-4 bg-primary-100 shadow-lg border border-slate-100 hover:bg-segunda-100"
               onClick={handleMoveRight}
             >
               <span aria-hidden="true">&raquo;</span>
@@ -108,8 +124,12 @@ export default function Pagination({ data, onPageChanged, limit }) {
             key={index}
             className={`${
               currentPage === page
-                ? 'py-2 px-4 bg-primera-100 text-segunda-100 font-bold shadow-md'
-                : 'py-2 px-4 bg-white shadow-md hover:bg-segunda-100'
+                ? `py-2 px-4 bg-primera-100 text-segunda-100 font-bold shadow-lg border border-slate-100 ${renderBorderRound(
+                    page,
+                  )}`
+                : `py-2 px-4 bg-white shadow-lg border border-slate-100 hover:bg-segunda-100 ${renderBorderRound(
+                    page,
+                  )}`
             }`}
             onClick={handleClick(page)}
           >

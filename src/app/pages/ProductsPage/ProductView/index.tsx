@@ -154,97 +154,120 @@ export default function Product() {
         active={navigation.state === 'loading' || loading === true}
         className="m-4 p-4 flex flex-col md:flex-row gap-2"
       >
-        <div className="text-center my-4 bg-primera-100 rounded-2xl shadow-lg py-1 inline md:hidden">
-          <p className="font-semibold text-lg md:text-md inline-flex text-segunda-100 bg">
+        <div className="text-center my-4 bg-primary-500 rounded-2xl shadow-lg py-1 inline md:hidden">
+          <p className="font-semibold text-lg md:text-md inline-flex text-secondary-500">
             {product.part_number}
           </p>
         </div>
         <div className="w-full md:w-2/6 md:order-1 grow-0 space-y-2">
           <Card className="hover:shadow-md p-4">
-            <p className="text-center bg-primera-100 text-segunda-100 py-1 my-4 px-4 rounded-xl text-xs">
-              Actions
-            </p>
-            <div className="my-2 space-y-2">
+            <div className="my-2 space-y-3">
               <button
-                className="px-4 py-2 w-full bg-primera-100 text-segunda-100 rounded-md text-xs font-semibold shadow-md inline-flex items-center hover:bg-segunda-100 hover:text-primera-100"
-                type="button"
                 onClick={() => {
                   handleImageUpload('Upload Product Image');
                 }}
+                className="relative inline-block px-4 py-2 font-bold group w-full"
               >
-                <PhotoIcon className="h-4 w-4 mr-2" />
-                Upload Image
+                <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+                <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+                  <PhotoIcon className="h-4 w-4 mr-2" />
+                  Upload Image
+                </span>
               </button>
+
               <button
-                className="px-4 py-2 w-full bg-primera-100 text-segunda-100 rounded-md text-xs font-semibold shadow-md inline-flex items-center hover:bg-segunda-100 hover:text-primera-100"
-                type="button"
                 onClick={() => {
-                  handleHistory();
+                  handleHistory('Upload Product Image');
                 }}
+                className="relative inline-block px-4 py-2 font-bold group w-full"
               >
-                <NewspaperIcon className="h-4 w-4 mr-2" />
-                View History
+                <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+                <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+                  <NewspaperIcon className="h-4 w-4 mr-2" />
+                  View History
+                </span>
               </button>
+
               <button
-                className="px-4 py-2 w-full bg-primera-100 text-segunda-100 rounded-md text-xs font-semibold shadow-md inline-flex items-center hover:bg-segunda-100 hover:text-primera-100"
-                type="button"
                 onClick={() => {
                   setIsOEMOpen(true);
                 }}
+                className="relative inline-block px-4 py-2 font-bold group w-full"
               >
-                <ListBulletIcon className="h-4 w-4 mr-2" />
-                View OEMs
+                <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+                <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+                  <ListBulletIcon className="h-4 w-4 mr-2" />
+                  View OEMs
+                </span>
               </button>
+
               <button
-                className="px-4 py-2 w-full bg-primera-100 text-segunda-100 rounded-md text-xs font-semibold shadow-md inline-flex items-center hover:bg-segunda-100 hover:text-primera-100"
-                type="button"
                 onClick={() => {
                   navigate(`/products/${product.slug}/compatibilities`);
                 }}
+                className="relative inline-block px-4 py-2 font-bold group w-full"
               >
-                <QueueListIcon className="h-4 w-4 mr-2" />
-                View Compatibilities
+                <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+                <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+                  <QueueListIcon className="h-4 w-4 mr-2" />
+                  View Compatibilities
+                </span>
               </button>
+
               <button
-                className="px-4 py-2 w-full bg-primera-100 text-segunda-100 rounded-md text-xs font-semibold shadow-md inline-flex items-center hover:bg-segunda-100 hover:text-primera-100"
-                type="button"
                 onClick={() => {
                   navigate(`/products/${product.slug}/wholesale-price`);
                 }}
+                className="relative inline-block px-4 py-2 font-bold group w-full"
               >
-                <BanknotesIcon className="h-4 w-4 mr-2" />
-                View Wholesale Prices
+                <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+                <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+                  <BanknotesIcon className="h-4 w-4 mr-2" />
+                  View Wholesale Prices
+                </span>
               </button>
             </div>
             <div className="flex flex-row justify-between gap-2 mt-4">
               <button
-                className="px-4 py-2 bg-segunda-100 text-primera-100 rounded-md text-xs font-semibold shadow-md inline-flex items-center hover:bg-primera-100 hover:text-segunda-100"
-                type="button"
                 onClick={() => {
                   navigate(-1);
                 }}
+                className="relative inline-block px-4 py-2 font-bold group w-full max-w-[8rem]"
               >
-                <ArrowUturnLeftIcon className="h-4 w-4 mr-2" />
-                Back
+                <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-secondary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span className="absolute rounded-lg inset-0 w-full h-full bg-secondary-500 border-2 border-secondary-500 group-hover:bg-primary-500 group-hover:border-secondary-500"></span>
+                <span className="relative text-primary-500 group-hover:text-secondary-500 flex items-center justify-center text-xs">
+                  <ArrowUturnLeftIcon className="h-4 w-4 mr-2" />
+                  Back
+                </span>
               </button>
 
               <button
-                className="px-4 py-2 bg-primera-100 text-segunda-100 flex items-center rounded-md text-xs font-semibold shadow-md hover:bg-segunda-100 hover:text-primera-100"
                 onClick={() => {
                   navigate(`/products/${product.slug}/update`);
                 }}
+                className="relative inline-block px-4 py-2 font-bold group w-full max-w-[8rem]"
               >
-                <PencilSquareIcon className="h-4 w-4 mr-1" />
-                Update
+                <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+                <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+                  <PencilSquareIcon className="h-4 w-4 mr-1" />
+                  Update
+                </span>
               </button>
             </div>
           </Card>
-          <div className="p-2 md:p-4">
-            <span className="text-sm">
-              Brand
+          <div className="p-4 bg-white rounded-xl shadow-lg space-y-2">
+            <span className="text-sm bg">
+              <p className="text-slate-400 text-xs"> Brand</p>
               <span className="flex flex-row justify-between items-center">
-                <b className="text-primera-100 flex items-center">
-                  <CubeIcon className="h-4 w-4 ml-2 mr-1 text-segunda-100" />
+                <b className="text-primary-500 flex items-center">
+                  <CubeIcon className="h-4 w-4 ml-2 mr-1 text-secondary-500" />
                   {product.brand.name}
                 </b>
                 <img
@@ -256,18 +279,15 @@ export default function Product() {
             </span>
             <hr className="py-2" />
             <span className="text-sm">
-              Vendor
+              <p className="text-slate-400 text-xs"> Vendor</p>
               <span className="flex flex-row items-center">
-                <BuildingStorefrontIcon className="h-4 w-4 ml-2 mr-1 text-segunda-100" />
-                <b className="text-primera-100">{product.vendor.name}</b>
+                <BuildingStorefrontIcon className="h-4 w-4 ml-2 mr-1 text-secondary-500" />
+                <b className="text-primary-500">{product.vendor.name}</b>
               </span>
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center w-full">
-            <p className="px-4 py-1 my-4 text-xs text-segunda-100 font-normal rounded-xl bg-primera-100 w-full text-center">
-              Images
-            </p>
             {product && product.images.length > 0 ? (
               <div className="p-2 md:p-4">
                 <Carousel className="rounded-xl">
@@ -279,29 +299,28 @@ export default function Product() {
                         p.url
                       }
                       alt={p.url}
-                      className="bg-gray-200"
+                      className="bg-slate-200"
                     />
                   ))}
                 </Carousel>
               </div>
             ) : (
-              <div className="h-44 md:h-64 bg-gray-200 flex flex-row justify-center items-center p-4 mt-4 rounded-lg w-full">
-                <p className="text-center py-2">No image found 😔</p>
+              <div className="h-44 md:h-64 bg-white flex flex-row justify-center items-center p-4 shadow-lg rounded-lg w-full">
+                <p className="text-center text-xs text-slate-400 py-2">
+                  No image found 😔
+                </p>
               </div>
             )}
           </div>
         </div>
         {/* card */}
         <Card className="flex-1 max-w-full p-4 grid grid-cols-4 gap-2 text-xs hover:shadow-md">
-          <div className="col-span-4 text-center my-4 bg-primera-100 rounded-xl py-1">
-            <p className="font-normal text-xs md:text-md inline-flex text-segunda-100 bg">
-              Product Details
-            </p>
-          </div>
           <div className="col-span-4">
-            <label className="block text-gray-700 font-bold mb-2">Part #</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Part #
+            </label>
             <input
-              className="shadow text-center bg-gray-200 appearance-none border rounded w-full py-2 text-primera-100 font-bold leading-tight focus:outline-none focus:shadow-outline"
+              className="text-center bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 font-bold leading-tight"
               id="text"
               type="text"
               readOnly
@@ -309,9 +328,9 @@ export default function Product() {
             />
           </div>
           <div className="col-span-4 md:col-span-1">
-            <label className="block text-gray-700 font-bold mb-2">ID</label>
+            <label className="block text-slate-700 font-bold mb-2">ID</label>
             <input
-              className="shadow text-right bg-gray-200 max-w-sm appearance-none border rounded w-full py-2 pprimera-100-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right bg-slate-200 max-w-sm appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -319,9 +338,9 @@ export default function Product() {
             />
           </div>
           <div className="col-span-4 md:col-span-3">
-            <label className="block text-gray-700 font-bold mb-2">Name</label>
+            <label className="block text-slate-700 font-bold mb-2">Name</label>
             <input
-              className="shadow text-right bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -330,11 +349,11 @@ export default function Product() {
           </div>
           <hr className="col-span-4 my-4" />
           <div className="col-span-2 md:col-span-1">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Category
             </label>
             <input
-              className="shadow text-right bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -342,9 +361,9 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2 md:col-span-1">
-            <label className="block text-gray-700 font-bold mb-2">Brand</label>
+            <label className="block text-slate-700 font-bold mb-2">Brand</label>
             <input
-              className="shadow text-right bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -352,9 +371,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2 md:col-span-1">
-            <label className="block text-gray-700 font-bold mb-2">Vendor</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Vendor
+            </label>
             <input
-              className="shadow text-right bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -362,11 +383,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2 md:col-span-1">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Garage Type
             </label>
             <input
-              className="shadow text-right bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -375,9 +396,9 @@ export default function Product() {
           </div>
           <hr className="col-span-4 my-4" />
           <div className="col-span-2 md:col-span-1">
-            <label className="block text-gray-700 font-bold mb-2">Stock</label>
+            <label className="block text-slate-700 font-bold mb-2">Stock</label>
             <input
-              className="shadow text-right bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -385,9 +406,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2 md:col-span-1">
-            <label className="block text-gray-700 font-bold mb-2">Status</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Status
+            </label>
             <input
-              className="shadow text-right bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -395,11 +418,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2 md:col-span-1">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               B2C Availability
             </label>
             <input
-              className="shadow text-right bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -407,27 +430,22 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2 md:col-span-1">
-            <label className="block text-gray-700 font-bold mb-2">Promo</label>
+            <label className="block text-slate-700 font-bold mb-2">Promo</label>
             <input
-              className="shadow text-right bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
               value={renderStatus(product.is_promo)}
             />
           </div>
-          {/* <hr className="col-span-4 my-4" /> */}
-          <div className="col-span-4 text-center my-4 bg-primera-100 rounded-xl py-1">
-            <p className="font-normal text-xs md:text-md inline-flex text-segunda-100 bg">
-              Product Descriptions
-            </p>
-          </div>
+          <hr className="col-span-4 my-4" />
           <div className="col-span-4">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Short Description
             </label>
             <input
-              className="shadow text-left bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-left bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -435,26 +453,22 @@ export default function Product() {
             />
           </div>
           <div className="col-span-4">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Long Description
             </label>
             <input
-              className="shadow text-left bg-gray-200 appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-left bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
               value={product.long_description}
             />
           </div>
-          <div className="col-span-4 text-center my-4 bg-primera-100 rounded-xl py-1">
-            <p className="font-normal text-xs md:text-md inline-flex text-segunda-100 bg">
-              Price & Cost Details (&#8369;)
-            </p>
-          </div>
+          <hr className="col-span-4 my-4" />
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">Cost</label>
+            <label className="block text-slate-700 font-bold mb-2">Cost</label>
             <input
-              className="shadow bg-gray-200 text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 leading-tight focus:outline-none focus:shadow-outline"
+              className="bg-slate-200 text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -462,11 +476,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Price (B2C)
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -474,9 +488,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">Tier 1</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Tier 1
+            </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -484,9 +500,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">Tier 2</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Tier 2
+            </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -494,9 +512,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">Tier 3</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Tier 3
+            </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -504,9 +524,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">Tier 4</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Tier 4
+            </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -514,9 +536,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">Tier 5</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Tier 5
+            </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -524,9 +548,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">Tier 6</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Tier 6
+            </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -534,9 +560,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">Tier 7</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Tier 7
+            </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -544,9 +572,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">Tier 8</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Tier 8
+            </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -554,9 +584,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">Tier 9</label>
+            <label className="block text-slate-700 font-bold mb-2">
+              Tier 9
+            </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -564,11 +596,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 10
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -576,11 +608,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 11
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -588,11 +620,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 12
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -600,11 +632,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 13
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -612,11 +644,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 14
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -624,11 +656,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 15
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -636,11 +668,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 16
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -648,11 +680,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 17
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -660,11 +692,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 18
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -672,11 +704,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 19
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -684,11 +716,11 @@ export default function Product() {
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-gray-700 font-bold mb-2">
+            <label className="block text-slate-700 font-bold mb-2">
               Tier 20
             </label>
             <input
-              className="shadow text-right appearance-none border rounded w-full py-2 px-3 text-primera-100 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly

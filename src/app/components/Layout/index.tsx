@@ -50,25 +50,25 @@ export function Layout(props: any) {
     let userRole = '';
     switch (role) {
       case 'admin_user':
-        userRole = 'Admin User';
-        break;
-      case 'products_user':
-        userRole = 'Product User';
-        break;
-      case 'vendor_user':
-        userRole = 'Vendor User';
-        break;
-      case 'sales_user':
-        userRole = 'Sales User';
+        userRole = 'Admin user';
         break;
       case 'product_user':
-        userRole = 'Product User';
+        userRole = 'Product user';
+        break;
+      case 'vendor_user':
+        userRole = 'Vendor user';
+        break;
+      case 'sales_user':
+        userRole = 'Sales user';
+        break;
+      case 'accounting_user':
+        userRole = 'Accounting user';
         break;
       case 'logistics_user':
-        userRole = 'Logistics User';
+        userRole = 'Logistics user';
         break;
       default:
-        userRole = 'Hello User';
+        userRole = 'Unauthenticated user';
         break;
     }
     return userRole;
@@ -79,7 +79,7 @@ export function Layout(props: any) {
     const prop = currentRoute[0];
     return (
       <p className="flex items-center">
-        <prop.Icon className="h-5 w-5 mr-2 text-segunda-100 stroke-2" />
+        <prop.Icon className="h-5 w-5 mr-2 text-secondary-500 stroke-2" />
         {prop.name}
       </p>
     );
@@ -92,12 +92,12 @@ export function Layout(props: any) {
             key={key}
             className={`m-1 p-2 rounded-lg ${
               pathName === prop.path
-                ? 'bg-white font-bold text-primera-100'
+                ? 'bg-white font-bold text-primary-500'
                 : 'text-white'
             }`}
           >
             <Link to={prop.path} className="flex items-center">
-              <prop.Icon className="h-5 w-5 mr-2 text-segunda-100 stroke-2" />
+              <prop.Icon className="h-5 w-5 mr-2 text-secondary-500 stroke-2" />
               {prop.name}
             </Link>
           </li>
@@ -133,7 +133,7 @@ export function Layout(props: any) {
                 leaveFrom="translate-x-0"
                 leaveTo="-translate-x-full"
               >
-                <div className="relative flex flex-col lg:hidden z-10 lg:flex-col w-4/5 bg-primera-100 h-screen content-center">
+                <div className="relative flex flex-col lg:hidden z-10 lg:flex-col w-4/5 bg-primary-500 h-screen content-center">
                   <button
                     type="button"
                     value="Close Sidebar"
@@ -152,17 +152,17 @@ export function Layout(props: any) {
                   <nav className="flex-1 overflow-y-auto mb-auto">
                     <ul className="p-4">{getRoutes(routes)}</ul>
                   </nav>
-                  <div className="h-10 bg-segunda-100 flex flex-row justify-between items-center">
-                    <p className="font-semibold text-primera-100 text-xs ml-2 flex items-center">
+                  <div className="h-10 bg-primary-700 flex flex-row justify-between items-center">
+                    <p className="text-secondary-500 text-xs ml-2 flex items-center">
                       <UserCircleIcon className="h-5 w-5 mr-1" />
                       {getRole(Auth.role())}
                     </p>
                     <button
                       onClick={handleLogout}
-                      className="flex flex-row hover:cursor-pointer items-center font-semibold text-primera-100 text-xs"
+                      className="flex flex-row hover:cursor-pointer items-center text-secondary-500 text-xs"
                     >
-                      Logout
-                      <ArrowRightOnRectangleIcon className="h-5 w-5 mr-2 text-primera-100 stroke-2" />
+                      logout
+                      <ArrowRightOnRectangleIcon className="h-5 w-5 mr-2 text-secondary-500 stroke-2" />
                     </button>
                   </div>
                 </div>
@@ -180,7 +180,7 @@ export function Layout(props: any) {
               </Transition.Child>
             </Dialog>
           </Transition>
-          <div className="hidden lg:flex lg:flex-col w-1/5 bg-primera-100 h-screen overscroll-y-auto content-center">
+          <div className="hidden lg:flex lg:flex-col w-1/5 bg-primary-500 h-screen overscroll-y-auto content-center">
             <div className="bg-white flex flex-row justify-center p-4">
               <img
                 src="/goparts-logo.svg"
@@ -191,28 +191,25 @@ export function Layout(props: any) {
             <nav className="flex-1 overflow-y-auto mb-auto">
               <ul className="p-4">{getRoutes(routes)}</ul>
             </nav>
-            <div className="h-10 bg-segunda-100 flex flex-row justify-between items-center">
-              <p className="font-semibold text-primera-100 text-xs ml-2 flex items-center">
+            <div className="h-10 bg-primary-700 flex flex-row justify-between items-center">
+              <p className="text-secondary-500 text-xs ml-2 flex items-center">
                 <UserCircleIcon className="h-5 w-5 mr-1" />
                 {getRole(Auth.role())}
               </p>
               <button
                 onClick={handleLogout}
-                className="flex flex-row items-center font-semibold text-primera-100 text-xs"
+                className="flex flex-row items-center text-secondary-500 text-xs"
               >
-                Logout
-                <ArrowRightOnRectangleIcon className="h-5 w-5 mr-2 text-primera-100 stroke-2" />
+                logout
+                <ArrowRightOnRectangleIcon className="h-5 w-5 mr-2 text-secondary-500" />
               </button>
             </div>
           </div>
           {/* content */}
-          <div className={`w-full lg:w-4/5 h-screen overflow-auto`}>
-            {/* <LoadingOverlay
-              active={navigation.state === 'loading'}
-              spinner
-              className="h-screen"
-            > */}
-            <div className="lg:hidden flex bg-primera-100 flex-row-reverse p-2">
+          <div
+            className={`w-full lg:w-4/5 h-screen overflow-auto bg-slate-300`}
+          >
+            <div className="lg:hidden flex bg-primary-500 flex-row-reverse p-2">
               <button
                 onClick={openModal}
                 className="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white"
@@ -230,13 +227,12 @@ export function Layout(props: any) {
                 {getRouteName(routes, pathName)}
               </span>
             </div>
-            <div className="hidden lg:flex bg-primera-100 flex-row items-center justify-center p-2 h-12">
+            <div className="hidden lg:flex bg-primary-500 flex-row items-center justify-center p-2 h-12">
               <span className="text-center text-white font-semibold">
                 {getRouteName(routes, pathName)}
               </span>
             </div>
             <Outlet />
-            {/* </LoadingOverlay> */}
           </div>
         </div>
       </div>

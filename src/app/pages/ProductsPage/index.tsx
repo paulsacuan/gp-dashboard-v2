@@ -4,7 +4,7 @@ import Pagination from 'app/components/Pagination';
 import ProductBulkUpload from 'app/components/Products/ProductBulkUpload';
 import ProductImageUpload from 'app/components/Products/ProductImageUpload';
 // External
-import { Card, CardBody, Typography, Chip } from '@material-tailwind/react';
+import { Card, CardBody, Typography } from '@material-tailwind/react';
 import LoadingOverlay from 'react-loading-overlay-ts';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -15,7 +15,6 @@ import {
   useNavigation,
   useNavigate,
   useSearchParams,
-  Link,
 } from 'react-router-dom';
 // Icons
 import {
@@ -209,7 +208,7 @@ export function ProductsPage() {
   };
 
   return (
-    <div className="bg-white m-4 p-4">
+    <div className="m-4 p-4">
       {/* card */}
 
       <ProductBulkUpload
@@ -225,57 +224,68 @@ export function ProductsPage() {
         title="Bulk Upload Product Images"
         handleUpload={handleUploadImage}
       />
-      <Card>
-        <CardBody className="relative shadow-sm w-full text-xs flex flex-col space-y-1 lg:space-y-0 lg:flex-row lg:space-x-1 justify-center">
-          <Link
-            to={'create'}
-            className="shadow-md px-4 py-2 rounded-xl bg-primera-100 text-segunda-100 font-semibold text-center hover:bg-segunda-100 hover:text-primera-100"
+      <Card className="my-2 rounded-xl">
+        <CardBody className="relative shadow-lg rounded-xl w-full flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-2 justify-center">
+          <button
+            onClick={() => navigate('/products/create')}
+            className="relative inline-block px-4 py-2 font-bold group"
           >
-            <button className="flex items-center">
+            <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+            <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+            <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
               <PlusCircleIcon className="h-5 w-5 mr-1" />
               Create New Product
-            </button>
-          </Link>
-
+            </span>
+          </button>
           {ImportObjects.map(data => (
             <button
               onClick={() => handleOpenUpload(data.title)}
-              className="flex items-center shadow-md px-4 py-2 rounded-xl bg-primera-100 text-segunda-100 font-semibold text-center hover:bg-segunda-100 hover:text-primera-100"
+              className="relative inline-block px-4 py-2 font-bold group"
             >
-              <data.Icon className="h-5 w-5 mr-2 stroke-2" />
-              {data.title}
+              <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+              <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+              <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+                <data.Icon className="h-5 w-5 mr-2 stroke-2" />
+                {data.title}
+              </span>
             </button>
           ))}
+
           <button
             onClick={() => setIsBulkImageOpen(true)}
-            className="flex items-center shadow-md px-4 py-2 rounded-xl bg-primera-100 text-segunda-100 font-semibold text-center hover:bg-segunda-100 hover:text-primera-100"
+            className="relative inline-block px-4 py-2 font-bold group"
           >
-            <PhotoIcon className="h-5 w-5 mr-2 stroke-2" />
-            Bulk Upload Product Images
+            <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+            <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+            <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+              <PhotoIcon className="h-5 w-5 mr-2 stroke-2" />
+              Bulk Upload Product Images
+            </span>
           </button>
         </CardBody>
       </Card>
-      <div className="relative mt-5 max-w-md">
+
+      <div className="relative mt-10 max-w-md">
         <label htmlFor="search" className="sr-only">
           Search
         </label>
 
-        <div className="rounded-xl shadow-md mb-8">
+        <div className="rounded-xl shadow-xl mb-8">
           <div
             className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
             aria-hidden="true"
           >
             <MagnifyingGlassIcon
-              className="mr-3 h-5 w-5 stroke-1 text-segunda-100"
+              className="mr-3 h-5 w-5 stroke-1 text-secondary-500"
               aria-hidden="true"
             />
           </div>
           <Form id="search-form" role="search">
             <input
-              className="h-12 block w-full text-segunda-100 rounded-xl bg-primera-100 pl-9 focus:ring-none focus:outline focus:outline-segunda-100 sm:text-sm"
+              className="h-12 block w-full text-secondary-500 border-2 border-white rounded-xl bg-primary-500 pl-9 focus:ring-none focus:outline-2 focus:outline-secondary-200 sm:text-sm"
               id="search"
               aria-label="Search Products"
-              placeholder="Search"
+              placeholder="Search (ex: vortex plus engine oil)"
               type="search"
               name="search"
               defaultValue={search}
@@ -311,35 +321,41 @@ export function ProductsPage() {
         )}
       </div>
 
-      <Card>
-        <div className="h-full rounded-lg overflow-auto">
+      <Card className="rounded-xl">
+        <div className="h-full rounded-xl shadow-lg overflow-auto">
           <LoadingOverlay
             active={navigation.state === 'loading' || loading === true}
             spinner
           >
             {/* card */}
-            <table className="w-full min-w-max table-auto text-right overflow-x-scroll">
+            <table className="w-full min-w-max table-auto text-right rounded-xl overflow-x-scroll">
               <thead>
                 <tr>
-                  <th className="border-b border-blue-gray-100 bg-primera-100 py-6 px-4 font-semibold text-segunda-100 leading-none text-left text-xs">
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-left text-xs">
                     Part #
                   </th>
-                  <th className="border-b border-blue-gray-100 bg-primera-100 py-6 px-4 font-semibold text-segunda-100 leading-none text-xs">
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs">
                     Name
                   </th>
-                  <th className="border-b border-blue-gray-100 bg-primera-100 py-6 px-4 font-semibold text-segunda-100 leading-none text-xs">
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs">
+                    Vendor
+                  </th>
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs">
+                    Category
+                  </th>
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs">
                     T1 Price
                   </th>
-                  <th className="border-b border-blue-gray-100 bg-primera-100 py-6 px-4 font-semibold text-segunda-100 leading-none text-xs">
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs">
                     Cost
                   </th>
-                  <th className="border-b border-blue-gray-100 bg-primera-100 py-6 px-4 font-semibold text-segunda-100 leading-none text-xs text-center">
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs text-center">
                     Stock
                   </th>
-                  <th className="border-b border-blue-gray-100 bg-primera-100 py-6 px-4 font-semibold text-segunda-100 leading-none text-xs text-center">
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs text-center">
                     Status
                   </th>
-                  <th className="border-b border-blue-gray-100 bg-primera-100 py-6 px-4 font-semibold text-segunda-100 leading-none text-xs text-center">
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs text-center">
                     Action
                   </th>
                 </tr>
@@ -350,13 +366,12 @@ export function ProductsPage() {
                   products.data.data.data.map(product => (
                     <tr
                       key={product.id}
-                      className="even:bg-blue-gray-100/50 hover:bg-segunda-200/20"
+                      className="even:bg-slate-100 text-gray-900 hover:bg-primary-50 hover:text-primary-500"
                     >
                       <td className="py-2 px-4">
                         <Typography
                           variant="small"
-                          color="blue-gray"
-                          className="font-normal text-left text-xs flex flex-row items-center gap-4"
+                          className="text-left text-xs flex flex-row items-center gap-4"
                         >
                           <img
                             src={
@@ -372,71 +387,49 @@ export function ProductsPage() {
                         </Typography>
                       </td>
                       <td className="py-2 px-4">
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal text-xs"
-                        >
+                        <Typography variant="small" className="text-xs">
                           {product.name}
                         </Typography>
                       </td>
                       <td className="py-2 px-4">
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal text-xs"
-                        >
+                        <Typography variant="small" className="text-xs">
+                          {product.vendor.name}
+                        </Typography>
+                      </td>
+                      <td className="py-2 px-4">
+                        <Typography variant="small" className="text-xs">
+                          {product.category.name}
+                        </Typography>
+                      </td>
+                      <td className="py-2 px-4">
+                        <Typography variant="small" className="text-xs">
                           {product.tier_1}
                         </Typography>
                       </td>
                       <td className="py-2 px-4">
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal text-xs"
-                        >
+                        <Typography variant="small" className="text-xs">
                           {product.cost}
                         </Typography>
                       </td>
                       <td className="py-2 px-4">
-                        <Chip
-                          variant="ghost"
-                          size="sm"
-                          className="text-center"
-                          value={renderStatus(product.stock)}
-                          color={
-                            renderStatus(product.stock) === '✅'
-                              ? 'green'
-                              : 'red'
-                          }
-                        />
+                        {renderStatus(product.stock)}
                       </td>
                       <td className="py-2 px-4">
-                        <Chip
-                          variant="ghost"
-                          size="sm"
-                          className="text-center"
-                          value={renderStatus(product.status)}
-                          color={
-                            renderStatus(product.status) === '✅'
-                              ? 'green'
-                              : 'red'
-                          }
-                        />
+                        {renderStatus(product.status)}
                       </td>
                       <td className="py-2 px-4">
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal text-center"
-                        >
+                        <Typography variant="small" className="text-center">
                           <button
-                            className="bg-primera-100 text-xs font-semibold shadow-md text-segunda-100 px-4 py-2 rounded-lg hover:bg-segunda-100 hover:text-primera-100"
                             onClick={() =>
                               navigate(`/products/${product.slug}`)
                             }
+                            className="relative inline-block px-4 py-2 font-bold group"
                           >
-                            View details
+                            <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                            <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+                            <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+                              View details
+                            </span>
                           </button>
                         </Typography>
                       </td>

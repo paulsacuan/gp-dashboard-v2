@@ -1,91 +1,39 @@
-import * as React from 'react';
+import React from 'react';
 // External
-import { Card, CardBody, Typography } from '@material-tailwind/react';
+import { useLoaderData } from 'react-router-dom';
+import { Card } from '@material-tailwind/react';
+// Icons
+import { ChartPieIcon } from '@heroicons/react/24/solid';
 
 export function HomePage() {
+  const { orders } = (useLoaderData() as {
+    orders: [{ total: 0; status: { id: number; name: string } }];
+  }) || {
+    orders: [{ total: 0, status: { id: 0, name: '' } }],
+  };
+  const total = orders.reduce(function (accumulator, curValue) {
+    return accumulator + curValue.total;
+  }, 0);
+
+  console.log(total);
   return (
     <>
-      <div className="bg-white h-screen m-4 p-4 ">
-        <table className="w-full min-w-max table-auto text-right overflow-x-scroll">
-          <thead>
-            <tr>
-              <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
-                <Typography
-                  color="blue-gray"
-                  className="font-normal leading-none opacity-70 text-left text-[12px]"
-                >
-                  Part #
-                </Typography>
-              </th>
-              <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal leading-none opacity-70 text-left text-[12px]"
-                >
-                  Part Name
-                </Typography>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="even:bg-blue-gray-50/50">
-              <td className="p-2">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal"
-                >
-                  3105
-                </Typography>
-              </td>
-              <td className="p-2">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal"
-                >
-                  Spark Plugs
-                </Typography>
-              </td>
-            </tr>
-            <tr className="even:bg-blue-gray-50/50">
-              <td className="p-2">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal"
-                >
-                  3105
-                </Typography>
-              </td>
-              <td className="p-2">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal"
-                >
-                  Spark Plugs
-                </Typography>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <Card className="mt-6 w-96">
-          <CardBody>
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="font-normal leading-none opacity-70 text-left text-xs"
-            >
-              Hello There
-            </Typography>
-            <button className="px-4 py-2 rounded-xl shadow-lg text-segunda-100 bg-primera-100">
-              Material Button
-            </button>
-          </CardBody>
-        </Card>
+      <div className="h-screen m-4 p-4">
+        <div className="grid grid-cols-4 gap-4">
+          {orders.map(order => (
+            <Card className="col-span-2 shadow-lg md:col-span-1 max-w-sm relative flex flex-col text-center md:text-right md:flex-row items-center justify-between">
+              <div className="w-full h-full">
+                <ChartPieIcon className="p-4 rounded-t-xl md:rounded-none md:rounded-l-xl md:max-w-[5rem] md:max-h-[5rem] text-secondary-500 bg-primary-500" />
+              </div>
+              <div className="mr-0 md:mr-4 py-2 space-y-1">
+                <p className="text-slate-700 tracking-tight font-monospace text-xs">
+                  {order.status.name}
+                </p>
+                <p className="text-slate-400 text-xs">{order.total}</p>
+              </div>
+            </Card>
+          ))}
+        </div>
       </div>
     </>
   );

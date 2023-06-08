@@ -33,6 +33,8 @@ import {
   productLoader,
   singleProductLoader,
 } from './loaders/ProductLoaders';
+// Order Loaders
+import { orderStatusLoader } from './loaders/OrderLoaders';
 // External
 import {
   Route,
@@ -87,7 +89,12 @@ export function App() {
           }
           errorElement={<ErrorPage />}
         >
-          <Route path="/" element={<HomePage />} errorElement={<ErrorPage />} />
+          <Route
+            path="/"
+            loader={orderStatusLoader}
+            element={<HomePage />}
+            errorElement={<ErrorPage />}
+          />
           <Route
             path="products"
             loader={productsLoader}
