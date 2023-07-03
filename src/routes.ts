@@ -2,6 +2,7 @@ import {
   ShoppingBagIcon,
   QuestionMarkCircleIcon,
   HomeIcon,
+  BuildingStorefrontIcon,
 } from '@heroicons/react/24/outline';
 
 const routes = [
@@ -141,8 +142,24 @@ const routes = [
     name: 'Garages',
     layout: '/',
     hidden: false,
-    Icon: QuestionMarkCircleIcon,
+    Icon: BuildingStorefrontIcon,
     roles: ['admin_user', 'sales_user', 'accounting_user'],
+  },
+  {
+    path: '/garages/:id',
+    name: 'View Garage',
+    layout: '/',
+    hidden: true,
+    Icon: QuestionMarkCircleIcon,
+    roles: ['admin_user', 'sales_user', 'marketing_user'],
+  },
+  {
+    path: '/garages/:id/update',
+    name: 'Update Garage',
+    layout: '/',
+    hidden: true,
+    Icon: QuestionMarkCircleIcon,
+    roles: ['admin_user', 'sales_user', 'marketing_user'],
   },
   {
     path: '/users',

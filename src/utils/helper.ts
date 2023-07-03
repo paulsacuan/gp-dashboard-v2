@@ -1,4 +1,7 @@
 export const renderStatus = prop => {
+  const status = prop === null ? '' : prop.toString();
+  if (status === '') return `❌`;
+
   let emoji = `✅`;
   switch (prop.toString()) {
     case '1':
@@ -69,4 +72,53 @@ export const renderProductGarageType = prop => {
       break;
   }
   return productGarageType;
+};
+
+export const renderGarageType = prop => {
+  let garageType = `inactive`;
+
+  switch (prop.toString()) {
+    case 'rapide_service_center':
+      garageType = `Rapide Service Center`;
+      break;
+    case 'nonlica_service_center':
+      garageType = `Non-Lica Service Center`;
+      break;
+    case 'dealership_and_lica':
+      garageType = `Dealership and Lica`;
+      break;
+    case 'nonlica_delearship':
+      garageType = `Non-Lica Dealership`;
+      break;
+    case 'lica':
+      garageType = `Lica`;
+      break;
+    case 'lica_dealership':
+      garageType = `Lica Dealership`;
+      break;
+    default:
+      garageType = `Inactive`;
+      break;
+  }
+  return garageType;
+};
+
+export const renderCurrency = prop => {
+  let PhP = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'PHP',
+  });
+
+  return PhP.format(prop);
+};
+
+export const dateFormatter = date => {
+  if (!date) return;
+  const d = new Date(date);
+  return d.toDateString().replace(/^\S+\s/, '');
+};
+
+export const renderDate = date => {
+  const d = new Date(date);
+  return d.toDateString();
 };

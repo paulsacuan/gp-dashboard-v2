@@ -14,12 +14,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import { HomePage } from './pages/HomePage/Loadable';
 import { LoginPage } from './pages/LoginPage/Loadable';
 import { ProductsPage } from './pages/ProductsPage/Loadable';
+import { GaragesPage } from './pages/GaragesPage/Loadable';
 // Pages/Products
 import ProductView from './pages/ProductsPage/ProductView';
 import ProductCreate from './pages/ProductsPage/ProductCreate';
 import ProductUpdate from './pages/ProductsPage/ProductUpdate';
 import ProductCompatibilities from './pages/ProductsPage/ProductCompatibilities';
 import ProductWholesalePrice from './pages/ProductsPage/ProductWholesalePrice';
+// Pages/Garages
+import GarageView from './pages/GaragesPage/GarageView';
+import GarageUpdate from './pages/GaragesPage/GarageUpdate';
+import GarageBilling from './pages/GaragesPage/GarageBilling';
+import GarageUsers from './pages/GaragesPage/GarageUsers';
+import GarageUserView from './pages/GaragesPage/GarageUserView';
+import GarageUserCreate from './pages/GaragesPage/GarageUserCreate';
+
 // Pages/Error
 import ErrorPage from './pages/ErrorPage';
 // Components
@@ -33,6 +42,14 @@ import {
   productLoader,
   singleProductLoader,
 } from './loaders/ProductLoaders';
+// Garage Loader
+import {
+  garageLoader,
+  singleGarageLoader,
+  garageBillingsLoader,
+  garageUsersLoader,
+  garageUserLoader,
+} from './loaders/GarageLoaders';
 // Order Loaders
 import { orderStatusLoader } from './loaders/OrderLoaders';
 // External
@@ -151,6 +168,76 @@ export function App() {
             element={
               <RequireAuth roles={['admin_user', 'product_user']}>
                 <ProductWholesalePrice />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="garages"
+            loader={garageLoader}
+            element={
+              <RequireAuth roles={['admin_user', 'sales_user']}>
+                <GaragesPage />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="garages/:id"
+            loader={singleGarageLoader}
+            element={
+              <RequireAuth roles={['admin_user', 'sales_user']}>
+                <GarageView />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="garages/:id/update"
+            loader={singleGarageLoader}
+            element={
+              <RequireAuth roles={['admin_user', 'sales_user']}>
+                <GarageUpdate />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="garages/:id/billing"
+            loader={garageBillingsLoader}
+            element={
+              <RequireAuth roles={['admin_user', 'sales_user']}>
+                <GarageBilling />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="garages/:id/users"
+            loader={garageUsersLoader}
+            element={
+              <RequireAuth roles={['admin_user', 'sales_user']}>
+                <GarageUsers />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="garages/:id/users/:user_id"
+            loader={garageUserLoader}
+            element={
+              <RequireAuth roles={['admin_user', 'sales_user']}>
+                <GarageUserView />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="garages/:id/users/create"
+            loader={singleGarageLoader}
+            element={
+              <RequireAuth roles={['admin_user', 'sales_user']}>
+                <GarageUserCreate />
               </RequireAuth>
             }
             errorElement={<ErrorPage />}

@@ -30,6 +30,7 @@ import {
 import { renderStatus } from 'utils/helper';
 import { Auth } from 'utils/auth';
 import { apiUrl } from 'utils/constants';
+
 export function ProductsPage() {
   const navigation = useNavigation();
   const navigate = useNavigate();
@@ -237,8 +238,9 @@ export function ProductsPage() {
               Create New Product
             </span>
           </button>
-          {ImportObjects.map(data => (
+          {ImportObjects.map((data, idx) => (
             <button
+              key={idx}
               onClick={() => handleOpenUpload(data.title)}
               className="relative inline-block px-4 py-2 font-bold group"
             >
@@ -270,9 +272,9 @@ export function ProductsPage() {
           Search
         </label>
 
-        <div className="rounded-xl shadow-xl mb-8">
+        <div className="rounded-xl mb-8">
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+            className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4"
             aria-hidden="true"
           >
             <MagnifyingGlassIcon
@@ -282,7 +284,7 @@ export function ProductsPage() {
           </div>
           <Form id="search-form" role="search">
             <input
-              className="h-12 block w-full text-secondary-500 border-2 border-white rounded-xl bg-primary-500 pl-9 focus:ring-none focus:outline-2 focus:outline-secondary-200 sm:text-sm"
+              className="h-12 block w-full text-secondary-500 rounded-xl bg-primary-500 pl-11 focus:ring-none focus:outline focus:outline-secondary-500 sm:text-sm"
               id="search"
               aria-label="Search Products"
               placeholder="Search (ex: vortex plus engine oil)"
@@ -331,7 +333,10 @@ export function ProductsPage() {
             <table className="w-full min-w-max table-auto text-right rounded-xl overflow-x-scroll">
               <thead>
                 <tr>
-                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-left text-xs">
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs text-center">
+                    Action
+                  </th>
+                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs">
                     Part #
                   </th>
                   <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs">
@@ -355,9 +360,6 @@ export function ProductsPage() {
                   <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs text-center">
                     Status
                   </th>
-                  <th className="bg-primary-500 py-4 px-4 font-semibold text-secondary-500 leading-none text-xs text-center">
-                    Action
-                  </th>
                 </tr>
               </thead>
 
@@ -366,12 +368,28 @@ export function ProductsPage() {
                   products.data.data.data.map(product => (
                     <tr
                       key={product.id}
-                      className="even:bg-slate-100 text-gray-900 hover:bg-primary-50 hover:text-primary-500"
+                      className="even:bg-slate-50 bg-slate-200 text-gray-900 hover:bg-primary-100 hover:text-primary-500"
                     >
+                      <td className="py-2 px-4">
+                        <Typography variant="small" className="text-center">
+                          <button
+                            onClick={() =>
+                              navigate(`/products/${product.slug}`)
+                            }
+                            className="relative inline-block px-4 py-2 font-bold group"
+                          >
+                            <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                            <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+                            <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+                              View
+                            </span>
+                          </button>
+                        </Typography>
+                      </td>
                       <td className="py-2 px-4">
                         <Typography
                           variant="small"
-                          className="text-left text-xs flex flex-row items-center gap-4"
+                          className="text-xs flex flex-row items-center justify-between gap-4 font-normal text-primary-500"
                         >
                           <img
                             src={
@@ -387,27 +405,42 @@ export function ProductsPage() {
                         </Typography>
                       </td>
                       <td className="py-2 px-4">
-                        <Typography variant="small" className="text-xs">
+                        <Typography
+                          variant="small"
+                          className="text-xs text-primary-500 font-normal"
+                        >
                           {product.name}
                         </Typography>
                       </td>
                       <td className="py-2 px-4">
-                        <Typography variant="small" className="text-xs">
+                        <Typography
+                          variant="small"
+                          className="text-xs text-primary-500 font-normal"
+                        >
                           {product.vendor.name}
                         </Typography>
                       </td>
                       <td className="py-2 px-4">
-                        <Typography variant="small" className="text-xs">
+                        <Typography
+                          variant="small"
+                          className="text-xs text-primary-500 font-normal"
+                        >
                           {product.category.name}
                         </Typography>
                       </td>
                       <td className="py-2 px-4">
-                        <Typography variant="small" className="text-xs">
+                        <Typography
+                          variant="small"
+                          className="text-xs text-primary-500 font-normal"
+                        >
                           {product.tier_1}
                         </Typography>
                       </td>
                       <td className="py-2 px-4">
-                        <Typography variant="small" className="text-xs">
+                        <Typography
+                          variant="small"
+                          className="text-xs text-primary-500 font-normal"
+                        >
                           {product.cost}
                         </Typography>
                       </td>
@@ -416,22 +449,6 @@ export function ProductsPage() {
                       </td>
                       <td className="py-2 px-4">
                         {renderStatus(product.status)}
-                      </td>
-                      <td className="py-2 px-4">
-                        <Typography variant="small" className="text-center">
-                          <button
-                            onClick={() =>
-                              navigate(`/products/${product.slug}`)
-                            }
-                            className="relative inline-block px-4 py-2 font-bold group"
-                          >
-                            <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-                            <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
-                            <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
-                              View details
-                            </span>
-                          </button>
-                        </Typography>
                       </td>
                     </tr>
                   ))}

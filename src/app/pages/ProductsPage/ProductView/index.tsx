@@ -31,12 +31,11 @@ import {
   renderProductAvailability,
 } from 'utils/helper';
 
-export default function Product() {
+export default function ProductView() {
   const [loading, setLoading] = useState(false);
   const { product } = (useLoaderData() as { product }) || {
     product: { data: {} },
   };
-  console.log(product);
   const navigate = useNavigate();
   const navigation = useNavigation();
 
@@ -262,7 +261,7 @@ export default function Product() {
               </button>
             </div>
           </Card>
-          <div className="p-4 bg-white rounded-xl shadow-lg space-y-2">
+          <div className="p-4 bg-white rounded-md shadow-lg space-y-2">
             <span className="text-sm bg">
               <p className="text-slate-400 text-xs"> Brand</p>
               <span className="flex flex-row justify-between items-center">
@@ -290,7 +289,12 @@ export default function Product() {
           <div className="flex flex-col items-center justify-center w-full">
             {product && product.images.length > 0 ? (
               <div className="p-2 md:p-4">
-                <Carousel className="rounded-xl">
+                <Carousel
+                  autoplay={true}
+                  autoplayDelay={3000}
+                  loop={true}
+                  className="rounded-md"
+                >
                   {product.images.map(p => (
                     <img
                       key={p.id}
@@ -299,7 +303,7 @@ export default function Product() {
                         p.url
                       }
                       alt={p.url}
-                      className="bg-slate-200"
+                      className="bg-slate-100 border border-slate-200"
                     />
                   ))}
                 </Carousel>
@@ -320,7 +324,7 @@ export default function Product() {
               Part #
             </label>
             <input
-              className="text-center bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 font-bold leading-tight"
+              className="text-center bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 font-bold leading-tight"
               id="text"
               type="text"
               readOnly
@@ -330,7 +334,7 @@ export default function Product() {
           <div className="col-span-4 md:col-span-1">
             <label className="block text-slate-700 font-bold mb-2">ID</label>
             <input
-              className="text-right bg-slate-200 max-w-sm appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-right bg-slate-100 border border-slate-200 max-w-sm appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -340,7 +344,7 @@ export default function Product() {
           <div className="col-span-4 md:col-span-3">
             <label className="block text-slate-700 font-bold mb-2">Name</label>
             <input
-              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-right bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -353,7 +357,7 @@ export default function Product() {
               Category
             </label>
             <input
-              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-right bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -363,7 +367,7 @@ export default function Product() {
           <div className="col-span-2 md:col-span-1">
             <label className="block text-slate-700 font-bold mb-2">Brand</label>
             <input
-              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-right bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -375,7 +379,7 @@ export default function Product() {
               Vendor
             </label>
             <input
-              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-right bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -387,7 +391,7 @@ export default function Product() {
               Garage Type
             </label>
             <input
-              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-right bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -398,7 +402,7 @@ export default function Product() {
           <div className="col-span-2 md:col-span-1">
             <label className="block text-slate-700 font-bold mb-2">Stock</label>
             <input
-              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-right bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -410,7 +414,7 @@ export default function Product() {
               Status
             </label>
             <input
-              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-right bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -422,7 +426,7 @@ export default function Product() {
               B2C Availability
             </label>
             <input
-              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-right bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -432,7 +436,7 @@ export default function Product() {
           <div className="col-span-2 md:col-span-1">
             <label className="block text-slate-700 font-bold mb-2">Promo</label>
             <input
-              className="text-right bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-right bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -445,7 +449,7 @@ export default function Product() {
               Short Description
             </label>
             <input
-              className="text-left bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-left bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -457,7 +461,7 @@ export default function Product() {
               Long Description
             </label>
             <input
-              className="text-left bg-slate-200 appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="text-left bg-slate-100 border border-slate-200 appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -468,7 +472,7 @@ export default function Product() {
           <div className="col-span-2">
             <label className="block text-slate-700 font-bold mb-2">Cost</label>
             <input
-              className="bg-slate-200 text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 leading-tight"
+              className="bg-slate-100 border border-slate-200 text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -480,7 +484,7 @@ export default function Product() {
               Price (B2C)
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -492,7 +496,7 @@ export default function Product() {
               Tier 1
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -504,7 +508,7 @@ export default function Product() {
               Tier 2
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -516,7 +520,7 @@ export default function Product() {
               Tier 3
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -528,7 +532,7 @@ export default function Product() {
               Tier 4
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -540,7 +544,7 @@ export default function Product() {
               Tier 5
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -552,7 +556,7 @@ export default function Product() {
               Tier 6
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -564,7 +568,7 @@ export default function Product() {
               Tier 7
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -576,7 +580,7 @@ export default function Product() {
               Tier 8
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -588,7 +592,7 @@ export default function Product() {
               Tier 9
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -600,7 +604,7 @@ export default function Product() {
               Tier 10
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -612,7 +616,7 @@ export default function Product() {
               Tier 11
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -624,7 +628,7 @@ export default function Product() {
               Tier 12
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -636,7 +640,7 @@ export default function Product() {
               Tier 13
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -648,7 +652,7 @@ export default function Product() {
               Tier 14
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -660,7 +664,7 @@ export default function Product() {
               Tier 15
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -672,7 +676,7 @@ export default function Product() {
               Tier 16
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -684,7 +688,7 @@ export default function Product() {
               Tier 17
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -696,7 +700,7 @@ export default function Product() {
               Tier 18
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -708,7 +712,7 @@ export default function Product() {
               Tier 19
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly
@@ -720,7 +724,7 @@ export default function Product() {
               Tier 20
             </label>
             <input
-              className="text-right appearance-none rounded-xl px-2 w-full py-2 text-primary-500 bg-slate-200 leading-tight"
+              className="text-right appearance-none rounded-md px-2 w-full py-2 text-primary-500 bg-slate-100 border border-slate-200 leading-tight"
               id="text"
               type="text"
               readOnly

@@ -292,7 +292,7 @@ export default function ProductUpdate() {
                 Part #
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.part_number
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -313,7 +313,7 @@ export default function ProductUpdate() {
                 Part Name
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.name
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -341,7 +341,7 @@ export default function ProductUpdate() {
                   className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white ring-1 ring-black/5"
                 >
                   <Combobox.Input
-                    className="`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
+                    className="`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
                     onChange={event => setVendorQuery(event.target.value)}
                     displayValue={(vendor: BasicModel) => vendor.name}
                   />
@@ -383,7 +383,7 @@ export default function ProductUpdate() {
                   className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white ring-1 ring-black/5"
                 >
                   <Combobox.Input
-                    className="`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
+                    className="`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
                     onChange={event => setCategoryQuery(event.target.value)}
                     displayValue={(category: BasicModel) => category.name}
                   />
@@ -425,7 +425,7 @@ export default function ProductUpdate() {
                   className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white ring-1 ring-black/5"
                 >
                   <Combobox.Input
-                    className="`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
+                    className="`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
                     onChange={event => setBrandQuery(event.target.value)}
                     displayValue={(brand: BasicModel) => brand.name}
                   />
@@ -467,7 +467,7 @@ export default function ProductUpdate() {
                   className="mx-auto max-w-xl divide-y divide-gray-100 overflow-hidden rounded bg-white ring-1 ring-black/5"
                 >
                   <Combobox.Input
-                    className="`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
+                    className="`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus-visible:border-secondary-500"
                     onChange={event => setParentQuery(event.target.value)}
                     displayValue={(parent: BasicModel) => parent.name}
                   />
@@ -503,7 +503,7 @@ export default function ProductUpdate() {
                 Short Description
               </label>
               <input
-                className={`appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.short_description
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -524,7 +524,7 @@ export default function ProductUpdate() {
                 Long Description
               </label>
               <input
-                className={`appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.long_description
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -551,7 +551,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-md w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-50 border-slate-200 bg-slate-50 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.stock)}
                     </span>
@@ -603,7 +603,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-md w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-50 border-slate-200 bg-slate-50 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.status)}
                     </span>
@@ -655,7 +655,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-md w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-50 border-slate-200 bg-slate-50 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.nextDayDeliveryAllowed)}
                     </span>
@@ -707,7 +707,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-md w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-50 border-slate-200 bg-slate-50 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.expressDeliveryAllowed)}
                     </span>
@@ -753,7 +753,7 @@ export default function ProductUpdate() {
                 Remarks
               </label>
               <input
-                className={`appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.remarks
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -774,7 +774,7 @@ export default function ProductUpdate() {
                 Tags
               </label>
               <input
-                className={`appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tags
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -801,7 +801,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-md w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-50 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderProductAvailability(state.btc_availability)}
                     </span>
@@ -853,7 +853,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-md w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-50 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderProductGarageType(state.garage_type)}
                     </span>
@@ -905,7 +905,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-md w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-50 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.is_wholesale)}
                     </span>
@@ -958,7 +958,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-md w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-50 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.is_promo)}
                     </span>
@@ -1011,7 +1011,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-md w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-50 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderSaleType(state.is_sale)}
                     </span>
@@ -1064,7 +1064,7 @@ export default function ProductUpdate() {
                 }}
               >
                 <div className="relative">
-                  <Listbox.Button className="relative max-w-sm appearance-none rounded-xl w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-100 focus:outline-none focus-visible:border-secondary-500 ">
+                  <Listbox.Button className="relative max-w-sm appearance-none rounded-md w-full py-2 px-3 text-slate-700 leading-tight text-left border border-slate-200 bg-slate-50 focus:outline-none focus-visible:border-secondary-500 ">
                     <span className="block truncate">
                       {renderStatus(state.discountAllowed)}
                     </span>
@@ -1110,7 +1110,7 @@ export default function ProductUpdate() {
                 Discount Percent
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.discount_percent
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1133,7 +1133,7 @@ export default function ProductUpdate() {
                 Price
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.price
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1152,7 +1152,7 @@ export default function ProductUpdate() {
                 Cost
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.cost
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1171,7 +1171,7 @@ export default function ProductUpdate() {
                 Tier 1
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_1
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1192,7 +1192,7 @@ export default function ProductUpdate() {
                 Tier 2
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_2
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1213,7 +1213,7 @@ export default function ProductUpdate() {
                 Tier 3
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_3
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1234,7 +1234,7 @@ export default function ProductUpdate() {
                 Tier 4
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_4
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1255,7 +1255,7 @@ export default function ProductUpdate() {
                 Tier 5
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_5
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1276,7 +1276,7 @@ export default function ProductUpdate() {
                 Tier 6
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_6
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1297,7 +1297,7 @@ export default function ProductUpdate() {
                 Tier 7
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_7
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1318,7 +1318,7 @@ export default function ProductUpdate() {
                 Tier 8
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_8
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1339,7 +1339,7 @@ export default function ProductUpdate() {
                 Tier 9
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_9
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1360,7 +1360,7 @@ export default function ProductUpdate() {
                 Tier 10
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_10
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1381,7 +1381,7 @@ export default function ProductUpdate() {
                 Tier 11
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_11
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1402,7 +1402,7 @@ export default function ProductUpdate() {
                 Tier 12
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_12
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1423,7 +1423,7 @@ export default function ProductUpdate() {
                 Tier 13
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_13
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1444,7 +1444,7 @@ export default function ProductUpdate() {
                 Tier 14
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_14
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1465,7 +1465,7 @@ export default function ProductUpdate() {
                 Tier 15
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_15
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1486,7 +1486,7 @@ export default function ProductUpdate() {
                 Tier 16
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_16
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1507,7 +1507,7 @@ export default function ProductUpdate() {
                 Tier 17
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_17
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1528,7 +1528,7 @@ export default function ProductUpdate() {
                 Tier 18
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_18
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1549,7 +1549,7 @@ export default function ProductUpdate() {
                 Tier 19
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_19
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'
@@ -1570,7 +1570,7 @@ export default function ProductUpdate() {
                 Tier 20
               </label>
               <input
-                className={`max-w-sm appearance-none border rounded-xl border-slate-200 bg-slate-100 w-full py-2 px-3 text-slate-700 leading-tight ${
+                className={`max-w-sm appearance-none border rounded-md border-slate-200 bg-slate-50 w-full py-2 px-3 text-slate-700 leading-tight ${
                   errors.tier_20
                     ? 'border border-red-500 focus:outline focus:outline-red-500'
                     : 'focus:outline focus:outline-secondary-500'

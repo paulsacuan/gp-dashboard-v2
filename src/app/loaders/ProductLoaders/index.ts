@@ -6,10 +6,7 @@ import { apiUrl } from 'utils/constants';
 export async function productsLoader({ request }) {
   const url = new URL(request.url);
   const search = url.searchParams.get('search');
-  console.log(url.search);
-
   const products = await axios.get(`${apiUrl}/v2/products/allv2${url.search}`);
-  console.log(products);
   return { products, search };
 }
 

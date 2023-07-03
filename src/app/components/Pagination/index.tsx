@@ -124,9 +124,9 @@ export default function Pagination({ data, onPageChanged, limit }) {
             key={index}
             className={`${
               currentPage === page
-                ? `py-2 px-4 bg-primera-100 text-segunda-100 font-bold shadow-lg border border-slate-100 ${renderBorderRound(
-                    page,
-                  )}`
+                ? `py-2 px-4 bg-primera-100 text-segunda-100 font-bold shadow-lg border border-slate-100 ${
+                    totalPages === 1 ? 'rounded-lg' : renderBorderRound(page)
+                  }`
                 : `py-2 px-4 bg-white shadow-lg border border-slate-100 hover:bg-segunda-100 ${renderBorderRound(
                     page,
                   )}`
