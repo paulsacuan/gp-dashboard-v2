@@ -23,6 +23,7 @@ import ProductCompatibilities from './pages/ProductsPage/ProductCompatibilities'
 import ProductWholesalePrice from './pages/ProductsPage/ProductWholesalePrice';
 // Pages/Garages
 import GarageView from './pages/GaragesPage/GarageView';
+import GarageCreate from './pages/GaragesPage/GarageCreate';
 import GarageUpdate from './pages/GaragesPage/GarageUpdate';
 import GarageBilling from './pages/GaragesPage/GarageBilling';
 import GarageUsers from './pages/GaragesPage/GarageUsers';
@@ -178,6 +179,16 @@ export function App() {
             element={
               <RequireAuth roles={['admin_user', 'sales_user']}>
                 <GaragesPage />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="garages/create"
+            loader={singleGarageLoader}
+            element={
+              <RequireAuth roles={['admin_user', 'sales_user']}>
+                <GarageCreate />
               </RequireAuth>
             }
             errorElement={<ErrorPage />}

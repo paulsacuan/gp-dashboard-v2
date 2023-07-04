@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import LoadingOverlay from 'react-loading-overlay-ts';
 import axios from 'axios';
 // utils
-import { apiUrl } from 'utils/constants';
+import { apiUrl, garageType, daysOfWeek, tierList } from 'utils/constants';
 import { Auth } from 'utils/auth';
 import { provinces } from 'utils/locations';
 // Icons
@@ -28,31 +28,6 @@ export default function GarageUpdate() {
   const { salesUser } = (useLoaderData() as { salesUser }) || {
     salesUser: { data: {} },
   };
-
-  // consts
-  const garageType = [
-    { id: 0, name: 'None', value: '' },
-    { id: 1, name: 'Inactive', value: 'inactive' },
-    { id: 2, name: 'Rapide Service Center', value: 'rapide_service_center' },
-    { id: 3, name: 'Non-Lica Service Center', value: 'nonlica_service_center' },
-    { id: 4, name: 'Dealership and Lica', value: 'dealership_and_lica' },
-    { id: 5, name: 'Non-Lica Dealership', value: 'nonlica_delearship' },
-    { id: 6, name: 'Lica', value: 'lica' },
-    { id: 7, name: 'Lica Dealership', value: 'lica_dealership' },
-  ];
-
-  const tierList = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  ];
-  const daysOfWeek = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ];
 
   // end of consts //
 

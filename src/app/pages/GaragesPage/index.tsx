@@ -2,7 +2,7 @@ import React from 'react';
 // Components
 import Pagination from 'app/components/Pagination';
 // External
-import { Card, Typography } from '@material-tailwind/react';
+import { Card, CardBody, Typography } from '@material-tailwind/react';
 import {
   useLoaderData,
   useSearchParams,
@@ -15,7 +15,7 @@ import LoadingOverlay from 'react-loading-overlay-ts';
 // utils
 import { renderGarageType, renderCurrency, renderStatus } from 'utils/helper';
 // Icons
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+import { MagnifyingGlassIcon, PlusCircleIcon } from '@heroicons/react/24/solid';
 
 export function GaragesPage() {
   const navigation = useNavigation();
@@ -37,6 +37,21 @@ export function GaragesPage() {
 
   return (
     <div className="m-4 p-4">
+      <Card className="my-2 rounded-xl">
+        <CardBody>
+          <button
+            onClick={() => navigate('/garages/create')}
+            className="relative inline-block px-4 py-2 font-bold group"
+          >
+            <span className="absolute rounded-lg inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-primary-200 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+            <span className="absolute rounded-lg inset-0 w-full h-full bg-primary-500 border-2 border-primary-500 group-hover:bg-secondary-500 group-hover:border-primary-500"></span>
+            <span className="relative text-secondary-500 group-hover:text-primary-500 flex items-center justify-center text-xs">
+              <PlusCircleIcon className="h-5 w-5 mr-1" />
+              Create New Garage
+            </span>
+          </button>
+        </CardBody>
+      </Card>
       <div className="relative mt-10 max-w-md">
         <label htmlFor="search" className="sr-only">
           Search

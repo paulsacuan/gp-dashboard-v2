@@ -17,23 +17,37 @@ export async function garageLoader({ request }) {
 
 export async function singleGarageLoader({ params }) {
   const id = params.id;
-  const garage = await axios.get(`${apiUrl}/v2/garages/${id}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${Auth.token()}`,
-    },
-  });
 
-  const salesUser = await axios.get(
-    `${apiUrl}/v2/users?type=sales_user&list=true`,
-    {
+  if (id) {
+    const garage = await axios.get(`${apiUrl}/v2/garages/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${Auth.token()}`,
       },
-    },
-  );
-  return { garage: garage.data.data, salesUser: salesUser.data };
+    });
+
+    const salesUser = await axios.get(
+      `${apiUrl}/v2/users?type=sales_user&list=true`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${Auth.token()}`,
+        },
+      },
+    );
+    return { garage: garage.data.data, salesUser: salesUser.data };
+  } else {
+    const salesUser = await axios.get(
+      `${apiUrl}/v2/users?type=sales_user&list=true`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${Auth.token()}`,
+        },
+      },
+    );
+    return { salesUser: salesUser.data };
+  }
 }
 
 export async function garageBillingsLoader({ params, request }) {
