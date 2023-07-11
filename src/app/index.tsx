@@ -15,6 +15,7 @@ import { HomePage } from './pages/HomePage/Loadable';
 import { LoginPage } from './pages/LoginPage/Loadable';
 import { ProductsPage } from './pages/ProductsPage/Loadable';
 import { GaragesPage } from './pages/GaragesPage/Loadable';
+import { VendorsPage } from './pages/VendorsPage/Loadable';
 // Pages/Products
 import ProductView from './pages/ProductsPage/ProductView';
 import ProductCreate from './pages/ProductsPage/ProductCreate';
@@ -29,7 +30,12 @@ import GarageBilling from './pages/GaragesPage/GarageBilling';
 import GarageUsers from './pages/GaragesPage/GarageUsers';
 import GarageUserView from './pages/GaragesPage/GarageUserView';
 import GarageUserCreate from './pages/GaragesPage/GarageUserCreate';
-
+// Pages/Vendors
+import VendorView from './pages/VendorsPage/VendorView';
+import VendorCreate from './pages/VendorsPage/VendorCreate';
+import VendorUsers from './pages/VendorsPage/VendorUsers';
+import VendorUserView from './pages/VendorsPage/VendorUserView';
+import VendorUserCreate from './pages/VendorsPage/VendorUserCreate';
 // Pages/Error
 import ErrorPage from './pages/ErrorPage';
 // Components
@@ -37,6 +43,8 @@ import { Layout } from './components/Layout';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 // Auth
 import { Auth } from 'utils/auth';
+// Users Loaders
+import { userLoader } from './loaders/UserLoaders';
 // Product Loaders
 import {
   productsLoader,
@@ -49,10 +57,16 @@ import {
   singleGarageLoader,
   garageBillingsLoader,
   garageUsersLoader,
-  garageUserLoader,
 } from './loaders/GarageLoaders';
 // Order Loaders
 import { orderStatusLoader } from './loaders/OrderLoaders';
+// Vendor Loaders
+import {
+  vendorsLoader,
+  singleVendorLoader,
+  vendorUsersLoader,
+} from './loaders/VendorLoaders';
+
 // External
 import {
   Route,
@@ -235,7 +249,7 @@ export function App() {
           />
           <Route
             path="garages/:id/users/:user_id"
-            loader={garageUserLoader}
+            loader={userLoader}
             element={
               <RequireAuth roles={['admin_user', 'sales_user']}>
                 <GarageUserView />
@@ -249,6 +263,65 @@ export function App() {
             element={
               <RequireAuth roles={['admin_user', 'sales_user']}>
                 <GarageUserCreate />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="vendors"
+            loader={vendorsLoader}
+            element={
+              <RequireAuth roles={['admin_user']}>
+                <VendorsPage />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="vendors/:id"
+            loader={singleVendorLoader}
+            element={
+              <RequireAuth roles={['admin_user']}>
+                <VendorView />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="vendors/create"
+            element={
+              <RequireAuth roles={['admin_user', 'sales_user']}>
+                <VendorCreate />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="vendors/:id/users"
+            loader={vendorUsersLoader}
+            element={
+              <RequireAuth roles={['admin_user']}>
+                <VendorUsers />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="vendors/:id/users/:user_id"
+            loader={userLoader}
+            element={
+              <RequireAuth roles={['admin_user']}>
+                <VendorUserView />
+              </RequireAuth>
+            }
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="vendors/:id/users/create"
+            loader={singleVendorLoader}
+            element={
+              <RequireAuth roles={['admin_user']}>
+                <VendorUserCreate />
               </RequireAuth>
             }
             errorElement={<ErrorPage />}

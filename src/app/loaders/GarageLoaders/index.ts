@@ -99,15 +99,3 @@ export async function garageUsersLoader({ params, request }) {
   });
   return { users, garage: garage.data.data };
 }
-
-export async function garageUserLoader({ params }) {
-  const userId = params.user_id;
-
-  const user = await axios.get(`${apiUrl}/v2/user/${userId}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${Auth.token()}`,
-    },
-  });
-  return { user: user.data.data };
-}
